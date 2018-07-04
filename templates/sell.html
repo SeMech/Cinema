@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title> **Выбор** </title>
+    <!--css connection-->
+    <link href="../static/css/background.css" rel="stylesheet">
+    <link href="../static/css/image.css" rel="stylesheet">
+</head>
+<body>
+<div style="margin: 25px 25px 25px 50px;">
+    <!--output movies-->
+    {% for film in film %}
+            <a href="/FilmTime?film={{ film[0] }}"><img src="{{ film[4] }}" class="poster" ></a>
+    {% endfor %}
+</div>
+<!--back button--><!-- width="200px" height="300px" style="margin: 0; padding: 0;" -->
+<a href="/"><img src="../static/image/backspace.png" class="back"></a>
+</body>
+</html>

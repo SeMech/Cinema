@@ -1,0 +1,7 @@
+/*background style*/
+body {
+    margin: 0;
+    background: url('../image/cinema.jpg') no-repeat 0 0;
+    background-size: 100%;
+    
+}

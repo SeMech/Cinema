@@ -1,0 +1,41 @@
+/*picture style*/
+.limit {
+    top: 10px;
+    right: 10px;
+    position: absolute;
+}
+
+/*block style*/
+.conf {
+    position: absolute;
+    margin-left: 35%;
+    margin-top: 19%;
+    border: 2px solid lightgray;
+    background-color: darkgray;
+    padding: 20px;
+    text-align: center;
+}
+
+@media screen and (max-device-width: 1400px) and (max-device-height: 800px) {
+    .conf {
+        font-size: 10px;
+        position: absolute;
+        margin-left: 35%;
+        margin-top: 19%;
+        border: 2px solid lightgray;
+        background-color: darkgray;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .limit {
+        top: 10px;
+        right: 10px;
+        position: absolute;
+    }
+
+    .ico_limit {
+        width: 200px;
+    }
+}
+

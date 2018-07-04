@@ -1,0 +1,8 @@
+/*button style on the main page*/
+.buy {
+    background: url(../image/buybutton.png) no-repeat 30% 4%;
+    width: 800px;
+    height: 200px;
+    margin: 200px auto auto auto;
+}
+

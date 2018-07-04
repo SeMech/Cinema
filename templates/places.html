@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title> **Выберите места** </title>
+		<link rel="stylesheet" href="../static/css/place.css"/>
+        <link rel="stylesheet" href="../static/css/background.css"/>
+        <link rel="stylesheet" href="../static/css/image.css"/>
+        <style>
+            #num1 {
+                text-transform: uppercase;
+            }
+        </style>
+        <script src="../static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="../static/js/places.js"></script>
+	</head>
+	<body>
+            <div class="info">
+                <img src="{{ film[4] }}">
+                <!-- width="300px" height="400px"-->
+                <h1>{{ film[1] }} {{ film[3] }}</h1>Дата и время сеанса: {{ session[1] }}/{{ session[4] }} </br> Зал: {{ session[5] }} </br> Длительность: {{ film[2] }}<br/> Цена: {{ session[2] }}р.</br><div style="border-bottom: 2px solid #000000; margin-left: 340px; margin-right: 300px;"></div></br>
+                <em>Ваша покупка: </em>
+                    <i id="price" data-price="{{ session[2] }}">#</i>р.</br>
+                <!--the "купить" button appears only if the purchase amount is not 0-->
+                <button class="butbuy">Купить</button>
+                <div class="form">
+                    <!--form of payment, appears only if you click "купить"-->
+                    <form class="forms" >
+                        <em>Введите номер карты:</em></br>
+                            <input class="num" type="text" name="NumCard1" placeholder="0000" size="4" required>
+                            <input class="num" type="text" name="NumCard2" placeholder="0000" size="4" required>
+                            <input class="num" type="text" name="NumCard3" placeholder="0000" size="4" required>
+                            <input class="num" type="text" pattern="[A-Z]" name="NumCard4" placeholder="0000" size="4" required></br>
+                        <em>Введите код CVV2/CVC2(*три цифры на обороте карты):</em><input class="input" type="number" name="CVV2/CVC2" size="3" maxlength="3" placeholder="366" required></br>
+                        <em>Введите Ваше имя и фамилия(*как указано на карте):</em><input class="input" type="text" name="Name" size="20" placeholder="Имя и фамилия" required></br>
+                    </form>
+                    <em class="em">*заполните все поля</em>
+                </div>
+                <!--The "купить" button appears only if all fields are filled in-->
+                <button id="buybutton" data-id_session="{{ session[0] }}" style="display: none">Купить</button>
+            </div>
+            <div class="row_place">
+                <!--output of places-->
+                <div style="width: 100%; background-color: darkslategray; height: 50px; font-size: 35px; margin-bottom: 50px">Экран</div>
+
+                        {% for place in place %}
+                            {% if place[1] == 1 %}
+                                <a href="#" class="place" data-number="{{ place[0] }}" ><span class="place-content">{{ place[0] }}</span></a>
+                            {% else %}
+                                <a href="#" class="close" ><span class="place-content">{{ place[0] }}</span></a>
+                            {% endif %}
+
+                        {% endfor %}
+
+            </div>
+            <!--free false-->
+            <div class="freeNULL">
+                Место занято!
+            </div>
+            <!--back button-->
+            {% if film[3] == '18+' %}
+            <a href="/Film18Time?film={{ session[3] }}"><img src="../static/image/backspace.png" class="back"></a>
+            {% else %}
+            <a href="/FilmTime?film={{ session[3] }}"><img src="../static/image/backspace.png" class="back"></a>
+            {% endif %}
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> **Выбор времени**</title>
+    <link rel="stylesheet" href="../static/css/background.css">
+    <link rel="stylesheet" href="../static/css/FilmTime.css">
+    <link href="../static/css/image.css" rel="stylesheet">
+</head>
+<body>
+    <div><img src="{{ film[4] }}" class="poster_info" ></biv>
+    <div class="DateTime">
+        <h1>Выберете дату и время сеанса:</h1>
+        {% for session in session %}
+            <a href="/places?id_session={{ session[0] }}" style="text-decoration: none; color: #000000"><div class="time"><em>{{ session[1] }}/{{ session[4] }}</em></div></a></br>
+        {% endfor %}
+    </div>
+    <!--back button--> <!--width="400px" height="600px" style="margin: 25px; position: fixed"-->
+<a href="/sell"><img src="../static/image/backspace.png" class="back"></a>
+</body>
+</html>
